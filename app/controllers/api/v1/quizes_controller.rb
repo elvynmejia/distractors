@@ -5,17 +5,17 @@ class Api::V1::QuizesController < ApplicationController
       answer: params[:answer]
     )
 
-    distractors = Services::Apis::Cerego.get_suggested_distractors(
-      question: quiz.question,
-      answer: quiz.answer
-    )
-
-    distractors.each do |item|
-      QuizItem.create!(
-        quiz_id: quiz.id,
-        distractor: item[:text]
-      )
-    end
+    # distractors = Services::Apis::Cerego.get_suggested_distractors(
+    #   question: quiz.question,
+    #   answer: quiz.answer
+    # )
+    #
+    # distractors.each do |item|
+    #   QuizItem.create!(
+    #     quiz_id: quiz.id,
+    #     distractor: item[:text]
+    #   )
+    # end
 
     render(
       json: {
