@@ -1,6 +1,6 @@
 class Api::V1::QuizesController < ApplicationController
   def index
-    quizes = Quiz.all
+    quizes = Quiz.all.order(id: :desc)
     render(
       json: {
         quizes: quizes.map { |quiz| QuizesPresenter.new(quiz).present }
