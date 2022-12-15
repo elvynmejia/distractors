@@ -1,8 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::QuizesController do
+  describe "index" do
+    let!(:quizes) { create_list(:quiz, 5) }
+
+    specify do
+      post(
+        :index
+      )
+      expect(response.status).to eq(200)
+      expect(parsed_body[:quizes].length).to eq(5)
+    end
+  end
+
   describe "post" do
-    specify "creates quiz" do
+    xspecify "creates quiz" do
       post(
         :create,
         params: {

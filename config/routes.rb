@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :quizes, only: [:create, :show]
+      resources :quizes, only: [:index, :create, :show]
     end
   end
 end

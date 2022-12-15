@@ -1,4 +1,14 @@
 class Api::V1::QuizesController < ApplicationController
+  def index
+    quizes = Quiz.all
+    render(
+      json: {
+        quizes: quizes.map { |quiz| QuizesPresenter.new(quiz).present }
+      },
+      status: 200
+    )
+  end
+
   def create
     quiz = Quiz.create!(
       question: params[:question],
