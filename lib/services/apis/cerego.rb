@@ -15,7 +15,6 @@ class Services::Apis::Cerego
       "texts[]=#{answer}"
     ].join("&")
 
-
     url = [
       ENV["CEREGO_API_URL"],
       "suggested_distractors?question=#{question_query}"
